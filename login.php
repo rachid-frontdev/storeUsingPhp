@@ -6,6 +6,7 @@
     </head>
 <body>
         <?php 
+    include('./inc/connection.php'); 
 ?>
 <form action='' method="POST" style="display:flex;flex-direction:column;">
     <input type='text' name='username' placeholder='YOUR username'>
@@ -19,13 +20,13 @@ if(isset($_POST['login'])) {
 //if(password_verify($password, $existingHashFromDb)) {
 //    echo 'Password is Correct';
 //}
-//    $sql = "select * from users where username='$username' and '$password'";
-//    $ret = mysqli_query($connection,$sql);
-//    while($res = mysqli_fetch_assoc($ret)){
-        session_start();
-    $_SESSION['user'] = $username;
+    $sql = "select fullname from users where username='$username' and '$password'";
+    $ret = mysqli_query($connection,$sql);
+    while($res = mysqli_fetch_assoc($ret)){
+            session_start();
+    $_SESSION['user'] = $res['fullname'];
     echo "<script>window.location.href = 'index.php'</script>";
-//    }
+    }
 }
 ?>
 
