@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,8 +17,10 @@
 
     <input class="btn btn-info" type="submit" name='click' value='submit'>
     </form>
-            <?php 
+    <?php 
     include('./inc/connection.php');
+?>
+            <?php 
     if(isset($_POST['click'])) {
     $fullname = $_POST['fullname'];
     $email = $_POST['email'];

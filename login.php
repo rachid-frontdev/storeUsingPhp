@@ -20,13 +20,15 @@ if(isset($_POST['login'])) {
 //if(password_verify($password, $existingHashFromDb)) {
 //    echo 'Password is Correct';
 //}
-    $sql = "select fullname from users where username='$username' and '$password'";
+//    $sql = "select fullname from users where username='$username' and '$password'";
+        $sql = "select * from users where username='$username' and password='$password'";
     $ret = mysqli_query($connection,$sql);
     while($res = mysqli_fetch_assoc($ret)){
             session_start();
     $_SESSION['user'] = $res['fullname'];
-    echo "<script>window.location.href = 'index.php'</script>";
+    header('Location:index.php');
     }
+    echo '<center><h5> you\'re miss something??</h5></center>';
 }
 ?>
 
