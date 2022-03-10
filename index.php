@@ -12,14 +12,23 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     </head>
 <body >
+    <ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="./hea/test.php">test</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./logout.php">log out</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled">Disabled</a>
+  </li>
+</ul>
         <?php 
 include './inc/connection.php';
-    session_start();
-    if( $_SESSION['user'] != '') {
-        $user = $_SESSION['user'];
-    } else header("Location:login.php")
 ?>
-    <h1><?php echo 'hello '. $user ?></h1>
 <form action='display.php' method="post">
         <input type='text' name='name' placeholder='YOUR name'>
     <input type="submit" name='submit' value='submit'>
@@ -33,9 +42,9 @@ include './inc/connection.php';
     // عندما لا نعرف اي عدد النتائج لي راح تظهرلنا
     while($res = mysqli_fetch_assoc($ret)){
         echo '
-        <div class="col col-lg-4 col-md-4">
-            <div class="card" style="width: 18rem;">
-                    <img src="image/'.$res["img"].'" class="img-fluid card-img-top" alt=" '.$res["description"].'">
+        <div class="col col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <div class="card mt-4" style="width: 18rem;">
+                    <center><img src="image/'.$res["img"].'" class="img-fluid card-img-top mt-3" alt=" '.$res["description"].'"></center>
                   <div class="card-body">
                     <h5 class="card-title">'.$res["product_name"].' </h5>
                     <p class="card-text">$ '.$res["product_price"].'</p>
@@ -43,7 +52,6 @@ include './inc/connection.php';
                   </div>
             </div>
             </div>';
-//    $_SESSION['user'] = $res['fullname'];
     }
 ?>
 
@@ -51,9 +59,6 @@ include './inc/connection.php';
 
     </div>
     
-
-        <a href='./hea/test.php'>test page</a>
-        <a href='./logout.php'>logout</a>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <!-- Stripe JavaScript library -->
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>

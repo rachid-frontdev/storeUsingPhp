@@ -8,7 +8,7 @@
         <?php 
     include('./inc/connection.php'); 
 ?>
-<form action='' method="POST" style="display:flex;flex-direction:column;">
+<form action='' method="POST" >
     <input type='text' name='username' placeholder='YOUR username'>
     <input type='password' name='password' placeholder='YOUR password'>
     <input type="submit" name='login' value='submit'>
@@ -17,10 +17,7 @@
 if(isset($_POST['login'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
-//if(password_verify($password, $existingHashFromDb)) {
-//    echo 'Password is Correct';
-//}
-//    $sql = "select fullname from users where username='$username' and '$password'";
+//    $sql = "select fullname from users where username='$username' and password='$password'";
         $sql = "select * from users where username='$username' and password='$password'";
     $ret = mysqli_query($connection,$sql);
     while($res = mysqli_fetch_assoc($ret)){

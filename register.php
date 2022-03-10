@@ -27,9 +27,8 @@
     $username = $_POST['username'];
     $pass1 = $_POST['password'];
     $pass2 = $_POST['password2'];
-//    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-//     echo  $name . ' email ' . $email . ' password ' . $hashed_password;
             if($pass1 == $pass2) {
+//    $hashed_password = password_hash($pass1, PASSWORD_DEFAULT);
     $sql = "INSERT into users(fullname, email,username,password) values('$fullname','$email', '$username', '$pass1')";
     $ret = mysqli_query($connection, $sql);
         if($ret) {
