@@ -20,7 +20,7 @@
     <a class="nav-link" href="./logout.php">log out</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="filter.php">filter</a>
   </li>
   <li class="nav-item">
     <a class="nav-link disabled">Disabled</a>
@@ -29,11 +29,10 @@
         <?php 
 include './inc/connection.php';
 ?>
-<form action='display.php' method="post">
-        <input type='text' name='name' placeholder='YOUR name'>
-    <input type="submit" name='submit' value='submit'>
+<?php 
+        include('parts/formavoidrepeat.php');
 
-    </form>
+        ?>
     <div class="container">
         <div class="row">
     <?php 
@@ -48,7 +47,16 @@ include './inc/connection.php';
                   <div class="card-body">
                     <h5 class="card-title">'.$res["product_name"].' </h5>
                     <p class="card-text">$ '.$res["product_price"].'</p>
-                    <a href="#" class="btn btn-primary">Buy It Now</a>
+                    <form action="yourcart.php?cid='.$res["id"].'" method="post">
+                    <label for="qty">quantity</label>
+                    <input id="qty" type="number" name="quantity">
+                    <input type="hidden" name="product_name" value="'.$res["product_name"].'">
+                    <input type="hidden" name="product_price" value="'.$res["product_price"].'">
+
+                    
+                    <br>
+                    <input type="submit" value="Buy It Now" class="btn btn-primary">
+                    </form>
                   </div>
             </div>
             </div>';
@@ -56,9 +64,8 @@ include './inc/connection.php';
 ?>
 
         </div>
-
     </div>
-    
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <!-- Stripe JavaScript library -->
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>

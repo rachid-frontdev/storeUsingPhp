@@ -67,6 +67,8 @@
             <th scope="col">description</th>
             <th scope="col">category</th>
             <th scope="col">#</th>
+            <th scope="col">#edit</th>
+                
             </tr>
             </thead>
             <tbody>
@@ -80,7 +82,8 @@
                 <td>'.$res['product_price'].'</td>
                 <td>'.$res['description'].'</td>
                 <td>'.$res['category'].'</td>
-                <td><a href="deletep.php?id='.$res['id'].'" class="btn btn-info">remove</a></td>
+                <td><a href="deletep.php?id='.$res['id'].'" class="btn btn-danger">remove</a></td>
+                <td><a href="editp.php?id='.$res['id'].'" class="btn btn-warning">edit</a></td>
                 </tr>';
                 }                
                 ?>
