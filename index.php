@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title></title>
         <link rel='stylesheet' href="main.css">
         <style>
@@ -15,7 +16,7 @@
                 <script src="https://use.fontawesome.com/fecf5a07d6.js"></script>
 
     </head>
-<body >
+<body style="position:relative;">
 
 <header class="bannerContainer" >
  
@@ -39,7 +40,7 @@
 
 </div>
         </header>
-               <nav class="navbar navbar-expand-lg navbar-light fixed-top" >
+               <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="display: none;">
   <div class="container">
     <a class="navbar-brand" href="index.php"> storeByPhp</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,15 +83,6 @@
   </div>
 </nav>
     
-        <div class='form_show'>
-            <span id="close_btn">×</span>
-                <form id="inOverlay" method="get" action="blog-search.php" class="d-flex flex-row">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-info" type="submit">
-              <i class="fa fa-search" aria-hidden="true"></i>
-</button>
-        </form>
-        </div>
 
         <?php 
 include './inc/connection.php';
@@ -102,7 +94,7 @@ include './inc/connection.php';
 
         ?>
     <div class="container">
-        <div class="row no-gutters">
+        <div class="row row-no-gutters">
     <?php 
     $sql = "SELECT * FROM products";
     $ret = mysqli_query($connection, $sql);
@@ -116,8 +108,7 @@ include './inc/connection.php';
                     <h5 class="card-title">'.$res["product_name"].' </h5>
                     <p class="card-text">$ '.$res["product_price"].'</p>
                     <form action="" method="post">
-                    <label for="qty">quantity</label>
-                    <input id="qty" type="number" name="quantity">
+                    <input type="number" name="quantity">
                     <input type="hidden" name="product_name" value="'.$res["product_name"].'">
                     <input type="hidden" name="product_price" value="'.$res["product_price"].'">
                     <input type="hidden" name="cid" value="'.$res["id"].'">
@@ -130,7 +121,7 @@ include './inc/connection.php';
             </div>
             </div>';
     }
-
+    mysqli_close($connection);
 ?>
             
         </div>
@@ -157,6 +148,75 @@ include './inc/connection.php';
         }
     }
     ?>
+   <button id='upScroll' type="button" style="    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border: none;
+    background: red;
+    color: #fff;
+    font-size: 1.2em;
+    border-radius: 1em;
+    width: 100px;
+    line-height: 34px;"><i class="fa-solid fa-angle-up"></i>up</button>
+      <footer class="py-5">
+    <div class="row">
+      <div class="col-2">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col-2">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col-2">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col-4 offset-1">
+        <form>
+          <h5>Subscribe to our newsletter</h5>
+          <p>Monthly digest of whats new and exciting from us.</p>
+          <div class="d-flex w-100 gap-2">
+            <label for="newsletter1" class="visually-hidden">Email address</label>
+            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+            <button class="btn btn-primary" type="button">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+          
+              <div class="d-flex justify-content-between py-4 my-4 border-top">
+      <p>&copy; 2022 store, Inc. All rights reserved.</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+      </ul>
+    </div>
+
+  </footer>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <!-- Stripe JavaScript library -->
@@ -205,10 +265,12 @@ $(document).ready(function() {
     });
 });
 </script>
-            <script src="script.js"></script>
-    <script>
-                const array = window.location.pathname;
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script  type="text/javascript">
+                    const array = window.location.pathname;
                 document.title = array.split('/', 2)[1];
     </script>
+    <script src="script.js"></script>
+
     </body>
 </html>

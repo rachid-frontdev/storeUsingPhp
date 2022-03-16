@@ -5,17 +5,18 @@
 .navbar {
     position:absolute;
     }
-            .navbar-nav .nav-item a {
-                color:red !important;
-            }
 
+.navbar-brand {
+        color: white !important;
+
+}
             .form_show {
     background: white;
     width: 400px;
     height: 200px;
      z-index: 30;
     border-radius: 10px;
-        display:none;
+/*        display:none;*/
             }
             #inOverlay,.form_show {
                 position: absolute;
@@ -31,11 +32,28 @@
     height: 30px;
     background-color: #ff8a73;
     text-align: center;
-    /* line-height: 30px; */
     color: #fff;
     font-size: 20px;
     cursor: pointer;
 }
-            .show {
+    .show {
                 display: block;
-            }
+    }
+/*
+@media only screen and (max-width: 992px) {
+  .navbar-nav .nav-item a  {
+    color: red !important;
+  }
+}
+*/
+@media  only screen and (min-width:  992px) {
+  .navbar-nav .nav-item a  {
+    color: white !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #search {
+    display: none;
+  }
+}
