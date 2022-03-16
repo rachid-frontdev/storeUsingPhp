@@ -55,20 +55,11 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="true" href="index.php">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="addproduct.php">products</a>
-          </li>
-                      <li class="nav-item">
-            <a class="nav-link" href="contact.php">contact</a>
-          </li>
-            <li class="nav-item">
-            <a class="nav-link" href="quote.php">quote</a>
-          </li>
-                        <li class="nav-item">
-            <a class="nav-link" href="courses.php">courses</a>
-          </li>
                         <li class="nav-item">
             <a class="nav-link" href="about.php">about</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logout.php">logout</a>
           </li>
             <li class="nav-item" id="search">
              <a href="#">
@@ -81,15 +72,6 @@
   </div>
 </nav>
     
-        <div class='form_show'>
-            <span id="close_btn">×</span>
-                <form id="inOverlay" method="get" action="blog-search.php" class="d-flex flex-row">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-info" type="submit">
-              <i class="fa fa-search" aria-hidden="true"></i>
-</button>
-        </form>
-        </div>
 
                 <div class="container">
                 <h4 class="title">items in your cart</h4>

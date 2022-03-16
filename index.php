@@ -1,3 +1,8 @@
+        <?php 
+include './inc/connection.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -57,21 +62,31 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="true" href="index.php">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="addproduct.php">products</a>
-          </li>
-                      <li class="nav-item">
-            <a class="nav-link" href="contact.php">contact</a>
-          </li>
-            <li class="nav-item">
-            <a class="nav-link" href="quote.php">quote</a>
-          </li>
-                        <li class="nav-item">
-            <a class="nav-link" href="courses.php">courses</a>
-          </li>
-                        <li class="nav-item">
+         <li class="nav-item">
             <a class="nav-link" href="about.php">about</a>
           </li>
+  
+            
+            <li class="nav-item">
+            <a class="nav-link" href="contact.php">contact</a>
+          </li>
+            <?php
+            if($_SESSION['userId'] != '') {
+                            ?>
+            <li class="nav-item">
+            <a class="nav-link" href="logout.php">logout</a>
+          </li>
+        <?php     } else {
+                ?>
+             <li class="nav-item">
+            <a class="nav-link" href="login.php">login</a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link" href="register.php">register</a>
+          </li>
+
+
+           <?php  } ?> 
             <li class="nav-item" id="search">
              <a href="#">
                 <i class="fa fa-search" aria-hidden="true"></i>
@@ -84,11 +99,6 @@
 </nav>
     
 
-        <?php 
-include './inc/connection.php';
-        session_start();
-
-?>
 <?php 
         include('parts/formavoidrepeat.php');
 
@@ -121,14 +131,11 @@ include './inc/connection.php';
             </div>
             </div>';
     }
-    mysqli_close($connection);
 ?>
             
         </div>
     </div>
     <?php 
-            echo  $_SESSION['userId'];
-
     if(isset($_POST['buy'])) {
     if( $_SESSION['userId'] != '') {
         $userId = $_SESSION['userId'];
@@ -146,6 +153,8 @@ include './inc/connection.php';
         } else {
             echo 'you have error ';
         }
+            mysqli_close($connection);
+
     }
     ?>
    <button id='upScroll' type="button" style="    position: absolute;

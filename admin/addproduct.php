@@ -139,7 +139,11 @@
                      addForm.elements[`${li.name}`].value = window.sessionStorage[`${li.name}`];
                  }
                 li.onblur =(e) => {
+                    if(e.currentTarget.value != '') {
                     window.sessionStorage[`${e.currentTarget.name}`] = e.currentTarget.value;
+                    } else {
+                        window.sessionStorage.removeItem(`${e.currentTarget.name}`);
+                    }
                 }
             })
         </script>
